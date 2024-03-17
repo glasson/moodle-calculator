@@ -1,7 +1,7 @@
 let button = document.querySelector('.block-button')
 const header = document.getElementById("page-header")
 let calcButton;
-let block_url = 'http://localhost:8080/moodle/blocks/calculator'
+let block_url = 'http://localhost/moodle/blocks/calculator'
 
 button.addEventListener('click', () => {
     if ( !document.querySelector('.calculate-block') ){

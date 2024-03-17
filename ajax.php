@@ -23,6 +23,4 @@ function save_result($a, $b, $c, $result){
     $ins->c = $c;
     $ins->result = $result;
     $ins->id = $DB->insert_record('block_calculator', $ins);
-
-
 }

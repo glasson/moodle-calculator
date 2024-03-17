@@ -5,7 +5,7 @@ global $DB, $PAGE;
 $query = "SELECT * FROM mdl_block_calculator";
 $data = $DB->get_records_sql($query);
 
-$home_url = 'http://localhost:8080/moodle/my';
+$home_url = 'http://localhost/moodle/my';
 
 $page = '<a href='.$home_url.'>Home</a> 
          <div style="display: flex;
