@@ -3,11 +3,12 @@
   <TABLES>
     <TABLE NAME="block_calculator" COMMENT="Default comment for block_calculator, please edit me">
       <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
-        <FIELD NAME="a" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="b" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="c" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="result" TYPE="char" LENGTH="128" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="id" TYPE="int" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="a" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="b" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="c" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="root_1" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="root_2" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>

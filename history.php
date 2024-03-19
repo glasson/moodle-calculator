@@ -1,11 +1,13 @@
 <?php
+declare(strict_types=1);
+
 require_once('./../../config.php');
 global $DB, $PAGE;
 
 $query = "SELECT * FROM mdl_block_calculator";
 $data = $DB->get_records_sql($query);
 
-$home_url = 'http://localhost/moodle/my';
+$home_url = 'http://localhost:8080/moodle/my';
 
 $page = '<a href='.$home_url.'>Home</a> 
          <div style="display: flex;
@@ -17,7 +19,8 @@ $page = '<a href='.$home_url.'>Home</a>
             <th>a</th>
             <th>b</th>
             <th>c</th>
-            <th>result</th>
+            <th>root1</th>
+            <th>root2</th>
          </tr>';
 
 $style = '
@@ -51,7 +54,10 @@ foreach ($data as $row) {
                     $row->c
                 </td> 
                 <td>
-                    $row->result
+                    $row->root_1
+                </td>
+                <td>
+                    $row->root_2
                 </td>
             </tr>";
 }
