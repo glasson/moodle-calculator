@@ -45,19 +45,19 @@ $style = '
 foreach ($data as $row) {
     $page .= "<tr>
                 <td>
-                    $row->a
+                    ".(float)$row->a."
                 </td>  
                 <td>
-                    $row->b
+                    ".(float)$row->b."
                 </td> 
                 <td>
-                    $row->c
+                    ".(float)$row->c."
                 </td> 
                 <td>
-                    $row->root_1
+                    ".(float)$row->root_1."
                 </td>
                 <td>
-                    $row->root_2
+                    ".(float)$row->root_2."
                 </td>
             </tr>";
 }

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="blocks/calculator/db" VERSION="2023100900" COMMENT="XMLDB file for Moodle blocks/calculator">
+<XMLDB PATH="blocks/calculator/db" VERSION="20240320" COMMENT="XMLDB file for Moodle blocks/calculator"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
   <TABLES>
     <TABLE NAME="block_calculator" COMMENT="Default comment for block_calculator, please edit me">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
-        <FIELD NAME="a" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="b" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="c" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="root_1" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
-        <FIELD NAME="root_2" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="a" TYPE="float" LENGTH="20" DECIMALS="10" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="b" TYPE="float" LENGTH="20" DECIMALS="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="c" TYPE="float" LENGTH="20" DECIMALS="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="root_1" TYPE="float" LENGTH="20" DECIMALS="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="root_2" TYPE="float" LENGTH="20" DECIMALS="10" NOTNULL="true" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
