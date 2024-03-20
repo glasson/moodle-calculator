@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 class block_calculator extends block_base {
     public function init() 
+        
     {
+        
         $this->title = get_string('pluginname', 'block_calculator');
     }
     function get_content() 
@@ -29,13 +31,14 @@ class block_calculator extends block_base {
                 
                 <a class="history" href="'.$url_history.'">История</a>
             </div>
-        '.$url_history;
+        ';
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $a = $_POST['a'];
-            $b = $_POST['b'];
-            $c = $_POST['c'];
-            if ($a && $b && $c){
-                if ($this->validate($a, $b, $c)) {
+            $a = $this->replace_comma_to_dot($_POST['a']);
+            $b = $this->replace_comma_to_dot($_POST['b']);
+            $c = $this->replace_comma_to_dot($_POST['c']);
+            if ($a !== '' && $b !== '' && $c !== ''){
+                if ($this->validate_or_set_error_html($a, $b, $c, $url_history)) {
                     $roots = $this->calculate($a, $b, $c);
                     if ($roots){
                         $result_string = "Корень 1: $roots[0]<br>
@@ -64,6 +67,9 @@ class block_calculator extends block_base {
                     
                 }
             }
+            else {
+
+            }
         }
             
         
@@ -79,9 +85,10 @@ class block_calculator extends block_base {
         ];
     }
     
-    public function validate($a, $b, $c) {
+    public function validate_or_set_error_html($a, $b, $c, $url_history) {
         $message = 'invalide input for: ';
         $invalide_values = '';
+
         if (!is_numeric($a)) $invalide_values .= '"a" ';
         if (!is_numeric($b)) $invalide_values .= '"b" ';
         if (!is_numeric($c)) $invalide_values .= '"c" ';
@@ -102,6 +109,7 @@ class block_calculator extends block_base {
                     <a class="history" href="'.$url_history.'">История</a>
                 </div>
             ';
+            return false;
         }
         else 
             return true;
@@ -132,6 +140,10 @@ class block_calculator extends block_base {
         } catch (Exception $e){
             return -1;
         }
+    }
+
+    public function replace_comma_to_dot($num){
+        return str_replace(',', '.', $num);
     }
 
 }
