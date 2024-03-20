@@ -3,7 +3,7 @@
   <TABLES>
     <TABLE NAME="block_calculator" COMMENT="Default comment for block_calculator, please edit me">
       <FIELDS>
-        <FIELD NAME="id" LENGTH="10" TYPE="int" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="a" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="b" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
         <FIELD NAME="c" TYPE="float" NOTNULL="true" SEQUENCE="false"/>
