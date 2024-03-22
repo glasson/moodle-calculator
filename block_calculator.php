@@ -32,15 +32,15 @@ class block_calculator extends block_base
                     'url_history' => $url_history,
                 ];
 
-                    $roots = $this->calculate($a, $b, $c);
-                    if (count($roots) === 0) {
-                        $result_string = "Невозможно определить корни";
-                    } else {
-                        $result_string = count($roots) == 1 ? "Корень: $roots[0]" : "Корень 1: $roots[0] <br> Корень 2: $roots[1]";
-                        if ($this->save_data($a, $b, $c, $roots[0], $roots[1]) === false)
-                            $result_string .= '<br>! Проблема записи в базу данных, возможно параметры слишком большие.';
-                    }
-                    $html_data['result_string'] = $result_string;
+                $roots = $this->calculate($a, $b, $c);
+                if (count($roots) === 0) {
+                    $result_string = "Невозможно определить корни";
+                } else {
+                    $result_string = $roots[0] == $roots[1] ? "Корень: $roots[0]" : "Корень 1: $roots[0] <br> Корень 2: $roots[1]";
+                    if ($this->save_data($a, $b, $c, $roots[0], $roots[1]) === false)
+                        $result_string .= '<br>! Проблема записи в базу данных, возможно параметры слишком большие.';
+                }
+                $html_data['result_string'] = $result_string;
             } else
                 $html_data = [
                     'a' => $_POST['a'],
@@ -75,11 +75,11 @@ class block_calculator extends block_base
     public function validate_and_convert_to_float($data, $keys): ?array
     {
         $vars = [];
-        foreach ($keys as $key){
+        foreach ($keys as $key) {
             if ($data[$key] === '')
                 return null;
-            if (is_numeric($data[$key]))
-                $vars[$key] = (float) $this->replace_comma_to_dot($data[$key]);
+            if (is_numeric($this->replace_comma_to_dot($data[$key])))
+                $vars[$key] = (float)$this->replace_comma_to_dot($data[$key]);
             else
                 return null;
         }
@@ -88,9 +88,9 @@ class block_calculator extends block_base
 
     public function calculate(float $a, float $b, float $c): array
     {
-        if (($a === 0 && $b === 0) || ($b === 0 && $c === 0) || ($a === 0 && $c === 0)) {
+        if (($a === 0.0 && $b === 0.0) || ($b === 0.0 && $c === 0.0) || ($a === 0.0 && $c === 0.0)) {
             return []; // Нет конкретных корней
-        } else if ($a === 0) {
+        } else if ($a === 0.0) {
             $root = (-$c) / $b;
             return [$root, $root]; //уравнение линейное
         }
