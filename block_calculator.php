@@ -31,8 +31,7 @@ class block_calculator extends block_base
                     'c' => $c,
                     'url_history' => $url_history,
                 ];
-                $invalid_values = $this->get_invalid_values($a, $b, $c);
-                if ($invalid_values === '') {
+
                     $roots = $this->calculate($a, $b, $c);
                     if (count($roots) === 0) {
                         $result_string = "Невозможно определить корни";
@@ -42,8 +41,6 @@ class block_calculator extends block_base
                             $result_string .= '<br>! Проблема записи в базу данных, возможно параметры слишком большие.';
                     }
                     $html_data['result_string'] = $result_string;
-                } else
-                    $html_data['invalid_values_message'] = "Неверно введены: " . $invalid_values;
             } else
                 $html_data = [
                     'a' => $_POST['a'],
