@@ -19,8 +19,8 @@ $page = '<a href='.$home_url.'>Home</a>
             <th>a</th>
             <th>b</th>
             <th>c</th>
-            <th>root1</th>
-            <th>root2</th>
+            <th>корень 1</th>
+            <th>корень 2</th>
          </tr>';
 
 $style = '

@@ -88,9 +88,11 @@ class block_calculator extends block_base
 
     public function calculate(float $a, float $b, float $c): array
     {
-        if (($a === 0.0 && $b === 0.0) || ($b === 0.0 && $c === 0.0) || ($a === 0.0 && $c === 0.0)) {
+        if (($a === 0.0 && $b === 0.0)) {
             return []; // Нет конкретных корней
-        } else if ($a === 0.0) {
+        } else if (($b === 0.0 && $c === 0.0) || ($a === 0.0 && $c === 0.0)){
+            return [0,0]; //ответ только 0
+        } else if (($a === 0.0) && ($b !== 0.0) && ($c !== 0.0)) {
             $root = (-$c) / $b;
             return [$root, $root]; //уравнение линейное
         }
